@@ -1,1 +1,201 @@
-/* You can add global styles to this file, and also import other style files */
+.container {
+    display: flex; /* Usar flexbox para layout */
+    height: 100vh; /* Ocupa toda a altura da tela */
+}
+
+.sidebar {
+    width: 15%; /* Largura da barra lateral */
+    background-color: rgba(131, 125, 243, 0.993); /* Cor roxa para a barra */
+    height: 100%; /* Ocupa toda a altura */
+    position: fixed; /* Fixa a barra na tela */
+    top: 0; /* Fica no topo da tela */
+    left: 0; /* Alinhada à esquerda */
+    padding: 20px; /* Espaçamento interno */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5); /* Sombra para um efeito visual */
+}
+
+.content {
+    margin-left: 15%; /* Espaço à esquerda igual à largura da sidebar */
+    padding: 20px; /* Espaçamento interno do conteúdo */
+    background-color: white; /* Cor do fundo do conteúdo */
+    height: 100vh; /* Ocupa toda a altura da tela */
+    overflow: auto; /* Permite rolagem se o conteúdo for longo */
+}
+
+.menu {
+    display: flex; /* Flexbox para o menu */
+    align-items: center; /* Alinha itens verticalmente */
+}
+
+.menu-icon {
+    display: flex; /* Flexbox para os tracinhos */
+    flex-direction: column; /* Coluna para os tracinhos */
+    align-items: flex-start; /* Alinha as barrinhas à esquerda */
+    margin-right: 10px; /* Espaçamento à direita das barrinhas */
+}
+
+.bar {
+    height: 2px; /* Altura das barrinhas */
+    width: 18px; /* Largura das barrinhas */
+    background-color: white; /* Cor branca */
+    margin: 2px 0; /* Margem entre as barrinhas */
+}
+
+.menu-title {
+    color: white; /* Cor do texto */
+    font-weight: bold; /* Texto em negrito */
+}
+
+.dashboard-button, .tasks-button, .nova-tarefa-button {
+    display: flex;
+    align-items: center;
+    background-color: transparent; /* Fundo transparente */
+    border: none; /* Sem borda */
+    color: white; /* Cor do texto */
+    font-size: 16px; /* Tamanho do texto */
+    padding: 10px; /* Espaçamento interno */
+    cursor: pointer; /* Cursor de pointer ao passar o mouse */
+    margin-top: 10px; /* Espaço acima do botão */
+}
+
+.dashboard-icon, .tasks-icon {
+    margin-right: 5px; /* Espaço entre o ícone e o texto */
+}
+
+.search-container {
+    position: absolute; /* Posiciona em relação ao contêiner */
+    top: 20px; /* Distância do topo */
+    left: 20%; /* Distância da barra lateral (igual à largura da sidebar) */
+    font-size: 24px; /* Tamanho do ícone da lupa */
+    color: #000; /* Cor da lupa */
+}
+
+.welcome-message {
+    position: absolute; /* Para posicionar abaixo da lupa */
+    top: 30px; /* Distância do topo (ajuste conforme necessário) */
+    left: 20%; /* Alinhado ao mesmo nível da lupa */
+    font-size: 20px; /* Tamanho do texto */
+    color: #000; /* Cor do texto */
+}
+
+.welcome-title {
+    position: absolute; /* Para posicionar abaixo da lupa */
+    top: 100px; /* Distância do topo (ajuste conforme necessário) */
+    left: 20%; /* Alinhado ao mesmo nível da lupa */
+    font-size: 20px; /* Tamanho do texto */
+    color: #000; /* Cor do texto */
+    white-space: nowrap; /* Impede a quebra de linha */
+}
+
+.welcome-subtitle {
+    position: absolute; /* Para posicionar abaixo do título */
+    top: 125px; /* Aumente conforme necessário para espaçar da saudação */
+    left: 20%; /* Alinhado ao mesmo nível da lupa */
+    font-size: 18px; /* Tamanho do texto */
+    color: #555; /* Cor do texto (pode ser ajustada) */
+    white-space: nowrap; /* Impede a quebra de linha */
+}
+
+/* Novo CSS para ocultar/exibir o conteúdo do Dashboard */
+.dashboard-content {
+    margin-top: 20px; /* Espaçamento acima do conteúdo */
+}
+
+.number-display {
+    font-size: 40px; /* Tamanho do número */
+    color: #000; /* Cor do número */
+    position: absolute; /* Para posicionar corretamente */
+    top: 240px; /* Aumente este valor para descer mais o número */
+    left: 22%; /* Alinhado ao mesmo nível da lupa */
+}
+
+.loading-indicator {
+    display: inline-block; /* Para permitir o espaço ao lado do número */
+    width: 21px; /* Largura da bolinha */
+    height: 21px; /* Altura da bolinha */
+    border-radius: 50%; /* Forma circular */
+    border: 2px dotted rgb(39, 39, 201); /* Bordas pontilhadas azuis */
+    margin-left: 155px; /* Espaçamento à esquerda da bolinha */
+}
+
+/* Novo botão de Nova Tarefa posicionado à direita */
+.nova-tarefa-button {
+    position: absolute; /* Posiciona o botão no local desejado */
+    top: 120px; /* Ajuste conforme necessário */
+    right: 20px; /* Alinhado à direita da tela */
+    background-color: rgba(131, 125, 243, 0.993); /* Cor roxa */
+    color: white; /* Cor do texto */
+    padding: 10px 15px; /* Espaçamento interno */
+    border: none; /* Sem borda */
+    border-radius: 5px; /* Bordas arredondadas */
+    cursor: pointer; /* Cursor de pointer ao passar o mouse */
+}
+
+/* Estilo para o número 2 e a bolinha vermelha */
+.number-container {
+    position: relative; /* Para permitir posicionamento absoluto dos elementos dentro */
+    display: inline-block; /* Para alinhar a bolinha e o número lado a lado */
+}
+
+.red-dot {
+    width: 10px; /* Largura da bolinha */
+    height: 10px; /* Altura da bolinha */
+    background-color: red; /* Cor da bolinha */
+    border-radius: 50%; /* Para torná-la circular */
+    position: absolute; /* Para posicionar em relação ao contêiner */
+    top: 7px; /* Ajuste para posicionar acima do número 2 */
+    left: 49%; /* Alinha ao centro do contêiner */
+    transform: translateX(-50%); /* Para centralizar a bolinha */
+}
+
+.number-two {
+    font-size: 40px; /* Tamanho do número 2 */
+    color: #000; /* Cor do número 2 */
+    margin-left: 80px; /* Espaço à esquerda do número 2 */
+}
+
+/* Estilo para "Tarefa em Atraso" */
+.tasks-overdue-text {
+    font-size: 11px; /* Tamanho da fonte menor */
+    color: #000; /* Cor do texto (pode ser ajustada) */
+    margin-left: 2px; /* Espaçamento à esquerda do texto */
+    display: inline-block; /* Para que fique ao lado do número */
+}
+#number-64 {
+    font-size: 40px; /* Tamanho do número 64 */
+    color: #000; /* Cor do número 64 */
+    margin-left: 600px; /* Espaço à esquerda do número 64 */
+    position: relative; /* Permite ajustar a posição com top */
+    top: -240px; /* Ajuste este valor para subir o número (exemplo: -20px) */
+}
+.confirmation-icon {
+    font-size: 20px; /* Ajuste o tamanho conforme necessário */
+    vertical-align: middle; /* Alinha o ícone ao meio do texto */
+    margin-left: 5px; /* Espaçamento à esquerda do ícone */
+}
+.confirmation-icon {
+    font-size: 20px; /* Tamanho do ícone */
+    vertical-align: middle; /* Alinha o ícone ao meio do texto */
+    margin-left: 700px; /* Espaçamento à esquerda do ícone */
+    position: relative; /* Permite usar top e bottom */
+    top: -55px; /* Ajuste esse valor para subir o ícone */
+}
+.task-count {
+    font-size: 22px; /* Ajuste o tamanho da fonte */
+    color: #000; /* Cor do texto */
+    margin-left: -100px; /* Alinhar com o número 4 */
+    position: relative; /* Permite usar top para ajuste fino */
+    top: -165px; /* Ajuste para alinhar o texto abaixo do número */
+    white-space: nowrap; /* Evita quebra de linha */
+}
+.chart-container {
+    position: relative;
+    margin-top: 20px; /* Espaço acima do gráfico */
+    width: 100%; /* Largura do gráfico */
+    max-width: 600px; /* Largura máxima do gráfico */
+    height: 400px; /* Altura do gráfico */
+  }
+  .hidden {
+    display: none; /* Esconde o menu */
+  }
+  
